@@ -15,7 +15,7 @@ phases:
     commands:
       - cd ..
       - mkdir -p deploy-backend
-      - cp book-management-api/build/libs/*-SNAPSHOT.jar deploy-backend/note-app.jar
+      - cp book-management-api/build/libs/*-SNAPSHOT.jar deploy-backend/app.jar
       - cp book-management-api/Procfile deploy-backend/
       - '[ -d book-management-api/.ebextensions ] && cp -r book-management-api/.ebextensions deploy-backend/ || true'
       - ls -la deploy-backend/
