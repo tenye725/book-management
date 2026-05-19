@@ -2,6 +2,9 @@
 book-management-front/ 경로에 
 .env.local 생성 후
 NEXT_PUBLIC_API_URL=http://localhost:8080 삽입한다.
+.env.production 생성 후
+NEXT_PUBLIC_API_URL=http://Book-app-backend-prod-env.eba-qtyfn6i3.ap-northeast-2.elasticbeanstalk.com 삽입한다.
+(**배포버전에서는 두 파일을 넣지 않은 것이 더 작동 잘될 수 있다.**)
 
 [실행 명령어]
 book-management-api> ./gradlew bootRun
