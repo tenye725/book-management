@@ -13,9 +13,9 @@ export interface Book {
     available: boolean;
 }
 
-// const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8080';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8080';
 
-const API_URL = 'http://book-app-backend-prod-env.eba-qtyfn6i3.ap-northeast-2.elasticbeanstalk.com';
+// const API_URL = 'http://book-app-backend-prod-env.eba-qtyfn6i3.ap-northeast-2.elasticbeanstalk.com';
 // 1. 도서 전체 조회 (조회 실패 시 error.tsx 띄움)
 export async function getBooks(searchType?: string, keyword?: string): Promise<Book[]> {
     let url = `${API_URL}/api/books`;
