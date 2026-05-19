@@ -35,6 +35,11 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testAnnotationProcessor 'org.projectlombok:lombok'
+
+
+
+    // MySQL (운영)
+    runtimeOnly 'com.mysql:mysql-connector-j'
 }
 
 tasks.named('test') {
