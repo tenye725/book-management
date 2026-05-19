@@ -21,4 +21,16 @@ book-management-front> npm run dev
 - 200, 201, 204, 404 등 REST API Status 처리 완료
 - http://localhost:3000 허용
 - 잘못된 경로 접근 시 404 전역 에러 error.tsx 예외 처리
+
+배포에 사용된 AWS
+- E2
+- Vpc
+- CodePipeline
+- Elastic Beanstalk
+- IAM
+- AWS Amplify
+- CodePipeline
+- RDS
+- S3
+-CodeBuild
 ```
