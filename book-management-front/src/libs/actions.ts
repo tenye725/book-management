@@ -13,8 +13,9 @@ export interface Book {
     available: boolean;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8080';
+// const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8080';
 
+const API_URL = 'http://book-app-backend-prod-env.eba-qtyfn6i3.ap-northeast-2.elasticbeanstalk.com';
 // 1. 도서 전체 조회 (조회 실패 시 error.tsx 띄움)
 export async function getBooks(searchType?: string, keyword?: string): Promise<Book[]> {
     let url = `${API_URL}/api/books`;
@@ -27,8 +28,9 @@ export async function getBooks(searchType?: string, keyword?: string): Promise<B
         if (!res.ok) {
             throw new Error(`서버 응답 오류 (코드: ${res.status})`);
         }
-        return res.json();
+        return await res.json();
     } catch (error) {
+        console.log(error);
         throw new Error("백엔드 서버와 통신할 수 없습니다.");
     }
 }
