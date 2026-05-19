@@ -1,0 +1,39 @@
+version: 0.2
+
+env:
+  variables:
+    NEXT_PUBLIC_API_URL: "http://"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+  pre_build:
+    commands:
+      - echo "Checking versions..."
+      - node -v && npm -v
+  build:
+    commands:
+      - echo "Build started..."
+      - cd book-management-front
+      - npm ci
+      - npm run build
+  post_build:
+    commands:
+      - echo "Post-build started..."
+      - cd ..
+      - mkdir -p deploy-frontend
+      - cp -r book-management-front/.next deploy-frontend/
+      - cp book-management-front/package.json deploy-frontend/
+      - cp book-management-front/package-lock.json deploy-frontend/
+      - '[ -f book-management-front/next.config.ts ] && cp book-management-front/next.config.ts deploy-frontend/ || true'
+      - '[ -f book-management-front/next.config.js ] && cp book-management-front/next.config.js deploy-frontend/ || true'
+      - '[ -d book-management-front/public ] && cp -r book-management-front/public deploy-frontend/ || true'
+      - '[ -d book-management-front/.ebextensions ] && cp -r book-management-front/.ebextensions deploy-frontend/ || true'
+      - ls -la deploy-frontend/
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: deploy-frontend
+  discard-paths: no
